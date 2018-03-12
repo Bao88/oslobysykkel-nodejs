@@ -4,6 +4,25 @@
 // init project
 var express = require('express');
 var app = express();
+var request = require('request');
+
+var headers = {
+    'Client-Identifier': process.env.CLIENT
+};
+
+var options = [{
+    url: 'https://oslobysykkel.no/api/v1/stations',
+    headers: headers
+}];
+
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+}
+
+// request(options[0], callback);
+
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -16,22 +35,18 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.get("/dreams", function (request, response) {
-  response.send(dreams);
+app.get("/stations", function (request, response) {
+  response.sendFile(__dirname + '/views/stations.html');
 });
 
-// could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
-app.post("/dreams", function (request, response) {
-  dreams.push(request.query.dream);
-  response.sendStatus(200);
+app.get("/availability", function (request, response) {
+  response.sendFile(__dirname + '/views/availability.html');
 });
 
-// Simple in-memory store for now
-var dreams = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
-];
+app.get("/status", function (request, response) {
+  response.sendFile(__dirname + '/views/status.html');
+});
+
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
