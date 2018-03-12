@@ -36,15 +36,19 @@ app.get("/", function (request, response) {
 });
 
 app.get("/stations", function (request, response) {
-  response.sendFile(__dirname + '/views/stations.html');
+  // response.sendFile(__dirname + '/views/stations.html');
+  response.send("Hello");
 });
 
 app.get("/availability", function (request, response) {
-  response.sendFile(__dirname + '/views/availability.html');
+  // response.sendFile(__dirname + '/views/availability.html');
+    response.send("Hello");
+
 });
 
 app.get("/status", function (request, response) {
-  response.sendFile(__dirname + '/views/status.html');
+  // response.sendFile(__dirname + '/views/status.html');
+  response.send("Hello");
 });
 
 
