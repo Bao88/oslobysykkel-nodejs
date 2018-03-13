@@ -15,11 +15,16 @@ app.get("/", function (request, response) {
 // request the data and send it back to client
 let headers = {'Client-Identifier': process.env.CLIENT}, url = 'https://oslobysykkel.no/api/v1/';
 app.get("/api/oslobysykkel", function (req, response) {
+  // console.log("Requested");
   let stationsJSON, availabilityJSON;
   request({url: url+"stations", headers}, function(error, res, stations){
+    if( res.statusCode === 401 ){
+      console.log("Remember to change process.env.CLIENT to your key!");
+      response.status(401);
+      response.type("json").send(res.body);
+    }
     response.status(200);
     stationsJSON = stations;
-    
     request({url: url+"stations/availability", headers}, function(error, res, availabilities){
       availabilityJSON = availabilities;
       response.type("json").send({stations: stations, availability: availabilities});

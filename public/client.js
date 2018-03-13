@@ -14,6 +14,8 @@ window.onload = function(){
       
       if(toggle) showList(jsonData);
       else draw(jsonData);
+    } else {
+      alert("Remember to set the process.env.CLIENT in server.js to your key");
     }
   };
   xmlhttp.open("GET", "/api/oslobysykkel", true);
