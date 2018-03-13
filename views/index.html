@@ -3,10 +3,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>OsloBySykkel</title>
   
     <script src="client.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
   <header>
@@ -14,7 +17,9 @@
       OsloBySykkel
     </h1>
     <nav>
+      <button id="toggle" onclick="buttonPressed(this)">List/Map</button>
       <ul>
+        <i class="fa fa-bicycle"></i>  
           <li><button onclick="buttonPressed(this)">Stations</button></li>
           <li><button onclick="buttonPressed(this)">Availability</button></li>
           <li><button onclick="buttonPressed(this)">Status</button></li>
@@ -22,7 +27,7 @@
     </nav>
   </header>
 
-  <main class="content">
+  <main id="content">
     Velkommen til min app.
     
   </main>
