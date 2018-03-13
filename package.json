@@ -2,22 +2,22 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "my-glitch-app",
+  "name": "OsloBySykkel",
   "version": "0.0.1",
-  "description": "What am I about?",
+  "description": "Oslo Bysykkel App",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "request": "^2.85.0"
   },
   "engines": {
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
+    "url": "https://github.com/Bao88/oslobysykkel-nodejs"
   },
   "license": "MIT",
   "keywords": [

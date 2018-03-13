@@ -80,17 +80,8 @@ function updateAvailability(dataArray){
       
           bikesAvailable.innerHTML = item.availability.bikes;
           locksAvailable.innerHTML = item.availability.locks;
-          console.log(locksAvailable.innerHTML);
-    }
-    // let bikesAvailable = 
-    // document.getElementById("s"+item.id);
-    
+    } 
   });
-}
-
-function mergeJSON(json1, json2){
-  let mergedContainer = [];
-  
 }
 
 // Show data as lists
@@ -99,8 +90,7 @@ function showList(data){
   let stationInfo, stationName, stationAvailability, text;
   let container = document.getElementById('content');
   container.innerHTML = "";
-  // let mergedContainer;
-  // availability = availability.sort( (obj1, obj2) => obj1.id === obj2.id ? 0 : obj1.id < obj2.id ? -1 : 1);
+
   console.log(stations);
   console.log(availability);
   
@@ -108,11 +98,6 @@ function showList(data){
     container.appendChild(createStationInfo(item));  
     if( index === array.length - 1 ) updateAvailability(availability);
   });
-
-// let test = document.getElementById("s157").children[3].children[1];
-//   test.innerHTML = 30;
- // alert(test);
-  // availability.forEach( item => document.get
 }
 
 // Plot data into google map
