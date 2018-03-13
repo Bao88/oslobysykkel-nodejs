@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body {
   display: flex;
   flex-direction: column;
@@ -5,6 +6,7 @@ body {
   text-align: center;
   padding: 0;
   margin: 0;
+  font-family: 'Open Sans', serif;
 }
 
 header {
@@ -23,6 +25,7 @@ header {
 /* content styling */
 .content {
   margin-top: 10%; 
+  overflow: scroll;
 }
 
 .stationInfo {
@@ -30,6 +33,9 @@ header {
   flex-flow: row wrap;
   min-height: 60px;
   min-width: 80vw;
+  background: #E0EAFC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .stationInfo h2 {
@@ -42,9 +48,10 @@ header {
   width: 80%;
 }
 
-div img {
-  min-height: 30px;
-/*   border: solid; */
+figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 /*---------------------------------------------*/

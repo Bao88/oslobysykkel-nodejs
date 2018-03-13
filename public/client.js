@@ -14,8 +14,6 @@ window.onload = function(){
       
       if(toggle) showList(jsonData);
       else draw(jsonData);
-      // initMap();
-      // document.getElementById("content").innerHTML = this.responseText;
     }
   };
   xmlhttp.open("GET", "/api/oslobysykkel", true);
@@ -35,11 +33,17 @@ function buttonPressed(event){
 
 
 function addIcon(what){
-  let icon =  document.createElement("img");
-  icon.setAttribute("src", what ? "https://cdn.glitch.com/9a3ab23f-c34f-4bde-b0cc-6d1372c6aa26%2Fbike.png?1520965299244" : 
-                                  "https://cdn.glitch.com/9a3ab23f-c34f-4bde-b0cc-6d1372c6aa26%2Flock.png?1520965502882");
+  let figure =  document.createElement("figure"),
+      img = document.createElement("img"),
+      figcaption = document.createElement("figcaption"),
+      text = document.createTextNode("0");
   
-  return icon;
+  img.setAttribute("src", what ? "https://cdn.glitch.com/9a3ab23f-c34f-4bde-b0cc-6d1372c6aa26%2Fbike.png?1520965299244" : 
+                                  "https://cdn.glitch.com/9a3ab23f-c34f-4bde-b0cc-6d1372c6aa26%2Flock.png?1520970201844");
+  figcaption.appendChild(text);
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
+  return figure;
 }
 
 
@@ -68,7 +72,20 @@ function createStationInfo(object){
 
 // Availability of bikes and locks can be changed in a small timeframe, thus we have to update it frequently
 function updateAvailability(dataArray){
-  dataArray.forEach( item => document.getElementById("s"+item.id));
+  dataArray.forEach( function(item){
+    let elementExist = document.getElementById("s"+item.id);
+    if( elementExist != null){
+      let bikesAvailable = elementExist.children[1].children[1],
+          locksAvailable = elementExist.children[3].children[1];
+      
+          bikesAvailable.innerHTML = item.availability.bikes;
+          locksAvailable.innerHTML = item.availability.locks;
+          console.log(locksAvailable.innerHTML);
+    }
+    // let bikesAvailable = 
+    // document.getElementById("s"+item.id);
+    
+  });
 }
 
 function mergeJSON(json1, json2){
@@ -81,12 +98,21 @@ function showList(data){
   let stations = JSON.parse(data.stations).stations, availability = JSON.parse(data.availability).stations;
   let stationInfo, stationName, stationAvailability, text;
   let container = document.getElementById('content');
+  container.innerHTML = "";
   // let mergedContainer;
   // availability = availability.sort( (obj1, obj2) => obj1.id === obj2.id ? 0 : obj1.id < obj2.id ? -1 : 1);
   console.log(stations);
   console.log(availability);
   
-  stations.forEach( item => container.appendChild(createStationInfo(item)));  
+  stations.forEach( ( item, index, array ) => {
+    container.appendChild(createStationInfo(item));  
+    if( index === array.length - 1 ) updateAvailability(availability);
+  });
+
+// let test = document.getElementById("s157").children[3].children[1];
+//   test.innerHTML = 30;
+ // alert(test);
+  // availability.forEach( item => document.get
 }
 
 // Plot data into google map
