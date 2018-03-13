@@ -14,9 +14,40 @@ header {
   background: linear-gradient(to right, #396afc, #2948ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+#toggle {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+}
+
+/* content styling */
 .content {
   margin-top: 10%; 
 }
+
+.stationInfo {
+  display: flex;
+  flex-flow: row wrap;
+  min-height: 60px;
+  min-width: 80vw;
+}
+
+.stationInfo h2 {
+  margin: 0;
+  width: 80%;
+}
+
+.stationInfo p {
+  margin: 0;
+  width: 80%;
+}
+
+div img {
+  min-height: 30px;
+/*   border: solid; */
+}
+
+/*---------------------------------------------*/
 
 ul {
   list-style-type: none;
