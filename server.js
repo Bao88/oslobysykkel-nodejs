@@ -22,13 +22,14 @@ app.get("/api/oslobysykkel", function (req, response) {
       console.log("Remember to change process.env.CLIENT to your key!");
       response.status(401);
       response.type("json").send(res.body);
+    } else {
+      response.status(200);
+      stationsJSON = stations;
+      request({url: url+"stations/availability", headers}, function(error, res, availabilities){
+        availabilityJSON = availabilities;
+        response.type("json").send({stations: stations, availability: availabilities});
+      });
     }
-    response.status(200);
-    stationsJSON = stations;
-    request({url: url+"stations/availability", headers}, function(error, res, availabilities){
-      availabilityJSON = availabilities;
-      response.type("json").send({stations: stations, availability: availabilities});
-    });
   });
 });
 

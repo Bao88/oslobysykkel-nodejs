@@ -9,13 +9,13 @@ window.onload = function(){
   
 //   Process the response when ready
   xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      let jsonData = JSON.parse(this.responseText); 
-      
-      if(toggle) showList(jsonData);
-      else draw(jsonData);
-    } else {
-      alert("Remember to set the process.env.CLIENT in server.js to your key");
+    if (this.readyState == 4) {
+      if(this.status == 200){
+        let jsonData = JSON.parse(this.responseText); 
+     
+        if(toggle) showList(jsonData);
+        else draw(jsonData);
+      } else alert("Remember to set the process.env.CLIENT in server.js to your key");
     }
   };
   xmlhttp.open("GET", "/api/oslobysykkel", true);
