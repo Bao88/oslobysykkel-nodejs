@@ -20,7 +20,7 @@ window.onload = function(){
     if (this.readyState == 4) {
       if(this.status == 200){
         let jsonData = JSON.parse(this.responseText); 
-     
+
         // if(toggle) showList(jsonData, position);
         if(toggle) showList(jsonData);
         else draw(jsonData);
