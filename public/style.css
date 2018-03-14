@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
   display: flex;
   flex-direction: column;
@@ -28,7 +29,17 @@ header {
 #content {
   margin-top: 20vh; 
   height: 70vh;
-  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -20px;
+  margin-left: -50px;
 }
 
 .stationInfo {
@@ -39,6 +50,10 @@ header {
   background: #E0EAFC;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.stationInfo:hover {
+ background: rgba(0, 0, 0, 0.3); 
 }
 
 .stationInfo h2 {

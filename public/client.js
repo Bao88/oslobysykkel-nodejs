@@ -1,5 +1,13 @@
 window.onload = function(){
-  let xmlhttp;
+  let xmlhttp, position;
+  let isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+  if (isMobile.matches) {
+    document.getElementById("subtitle").innerHTML = "Mobil";
+    // getGeolocation(function (data){ position = data;});
+    // console.log(position);
+  }
+  
   if (window.XMLHttpRequest) {
     xmlhttp = new XMLHttpRequest();
   } else {
@@ -12,7 +20,8 @@ window.onload = function(){
     if (this.readyState == 4) {
       if(this.status == 200){
         let jsonData = JSON.parse(this.responseText); 
-     
+
+        // if(toggle) showList(jsonData, position);
         if(toggle) showList(jsonData);
         else draw(jsonData);
       } else alert("Remember to set the process.env.CLIENT in server.js to your key");
@@ -30,9 +39,7 @@ function buttonPressed(event){
     toggle = toggle ? false:true;
     return;
   }
-  
 }
-
 
 function addIcon(what){
   let figure =  document.createElement("figure"),
@@ -48,13 +55,30 @@ function addIcon(what){
   return figure;
 }
 
+function getGeolocation(callback) {
+  if( navigator.geolocation ) {
+    navigator.geolocation.getCurrentPosition( function getPosition(position){
+      console.log(position);
+      callback(position);                                     
+    });
+  } else {
+    alert("Geolocation is not available"); 
+  }
+}
+
 
 function createStationInfo(object){
-  let stationInfo, stationName, stationAvailability, text, bike, lock;
+  let stationInfo, stationName, stationAvailability, text, bike, lock, linkGMap;
+  // console.log(position);
   
   stationInfo = document.createElement("div");
   stationInfo.setAttribute("class", "stationInfo");
   stationInfo.setAttribute("id", "s"+object.id);
+  // https://maps.google.com/?q=38.6531004,-90.243462&ll=38.6531004,-90.243462&z=3
+  linkGMap = "https://maps.google.com/?q=" + object.center.latitude + "," + object.center.longitude + "&ll=" + object.center.latitude + "&z=15";
+  console.log(linkGMap);
+  stationInfo.setAttribute("onclick", "window.open('"+linkGMap+"', 'mywindow')");
+  // <div onclick="window.open('newurl.html','mywindow');" style="cursor: pointer;">&nbsp;</div>
   
   stationName = document.createElement("h2");
   text = document.createTextNode(object.title);
