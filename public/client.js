@@ -18,7 +18,6 @@ window.onload = function(){
     if (this.readyState == 4) {
       if(this.status == 200){
         let jsonData = JSON.parse(this.responseText); 
-
         showList(jsonData);
         
       } else alert("Remember to set the process.env.CLIENT in server.js to your key");
@@ -27,8 +26,6 @@ window.onload = function(){
   xmlhttp.open("GET", "/api/oslobysykkel", true);
   xmlhttp.send();
 }
-
-
 
 // future feature
 let toggle = true;
@@ -62,7 +59,6 @@ function getGeolocation(callback) {
     alert("Geolocation is not available"); 
   }
 }
-
 
 function createStationInfo(object){
   let stationInfo, stationName, stationAvailability, text, bike, lock, linkGMap;
@@ -135,13 +131,9 @@ function showList(data){
   let stationInfo, stationName, stationAvailability, text;
   let container = document.getElementById('content');
   container.innerHTML = "";
-
-  // console.log(stations);
-  // console.log(availability);
   
   stations.forEach( ( item, index, array ) => {
     container.appendChild(createStationInfo(item));  
     if( index === array.length - 1 ) updateAvailability(availability);
   });
-  
 }

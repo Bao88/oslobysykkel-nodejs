@@ -30,6 +30,7 @@ app.get("/api/oslobysykkel", function (req, response) {
         response.type("json").send({stations: stations, availability: availabilities});
       });
     }
+   
   });
 });
 
