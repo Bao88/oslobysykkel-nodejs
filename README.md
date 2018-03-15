@@ -13,3 +13,6 @@ Or if you want to skip these steps you can visit this page to see how it works:
 TODO
 - [x] Add a timer to refresh the availabilty of bikes and locks
 - [ ] play around with Google Map API
+- [ ] add a feature to show only available bikes
+- [ ] add a feature to show only available locks
+- [ ] add a feature to show station service status
