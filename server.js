@@ -34,6 +34,20 @@ app.get("/api/oslobysykkel", function (req, response) {
   });
 });
 
+app.get("/api/update", function (req, response) {
+  let stationsJSON, availabilityJSON;
+  request({url: url+"stations/availability", headers}, function(error, res, stations){
+    if( res.statusCode === 401 ){
+      console.log("Remember to change process.env.CLIENT to your key!");
+      response.status(401);
+      response.type("json").send(res.body);
+    } else {
+      response.status(200);
+      response.type("json").send(stations);
+    }
+  });
+});
+
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
