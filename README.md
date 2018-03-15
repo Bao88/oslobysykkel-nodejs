@@ -9,3 +9,7 @@ How to use:
 
 Or if you want to skip these steps you can visit this page to see how it works:
 <a href="https://oslobysykkel-nodejs.glitch.me/" target="_blank">https://oslobysykkel-nodejs.glitch.me/</a>
+
+TODO
+- Add a timer to refresh the availabilty of bikes and locks
+- play around with Google Map API
