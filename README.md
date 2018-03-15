@@ -9,6 +9,8 @@ How to use:
 
 Or if you want to skip these steps you can visit this page to see how it works:
 <a href="https://oslobysykkel-nodejs.glitch.me/" target="_blank">https://oslobysykkel-nodejs.glitch.me/</a>
+- Don't send a request with custom headers through the browser(Chrome) and we will be able to access the resources.
+- Or we could modify the server to handle OPTIONS requests
 
 TODO
 - [x] Add a timer to refresh the availabilty of bikes and locks
