@@ -2,7 +2,7 @@ How to use:
 
 - Need to have NodeJs installed
   - npm install
-  - in server.js, change process.env.CLIENT to your own key
+  - in server.js, change process.env.CLIENT to your own API key
   - run using npm start
   - open the app in browser with "localhost:<port-number>"
 

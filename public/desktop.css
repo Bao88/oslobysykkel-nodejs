@@ -2,4 +2,8 @@
   #content {
     width: 100vw;
   }
+  
+  .stationInfo {
+    cursor: pointer;
+  }
 }
