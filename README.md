@@ -9,9 +9,14 @@ How to use:
 
 Or if you want to skip these steps you can visit this page to see how it works:
 <a href="https://oslobysykkel-nodejs.glitch.me/" target="_blank">https://oslobysykkel-nodejs.glitch.me/</a>
-- Don't send a request with custom headers through the browser(Chrome) and we will be able to access the resources.
-- Or we could modify the server to handle OPTIONS requests
-
+Features: 
+ - An overview of the stations and the availability of bikes and locks on each of them.
+ - Clickable stations which forwards the user to Google Map where they can find the address of it.
+ 
+Problems found during development:
+ - Don't send a request with custom headers through the browser(Chrome) and we will be able to access the resources(but we have to, thus we need to find another solution).
+ - The server doesn't handle OPTIONS requests(which is our preflights triggered by custom headers).
+ 
 TODO
 - [x] Add a timer to refresh the availabilty of bikes and locks
 - [ ] play around with Google Map API
